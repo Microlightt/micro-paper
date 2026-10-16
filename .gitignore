@@ -1,0 +1,150 @@
+# Keep real paper workspaces outside this source checkout. These root folders
+# are reserved for local outputs; arbitrarily named exports need manual review.
+/work/
+/workspaces/
+/papers/
+/private/
+/private-data/
+/local/
+/local-review/
+/output/
+/outputs/
+/runs/
+/artifacts/
+/tmp/
+/temp/
+
+# Original papers and PDF derivatives, including synthetic generated PDFs.
+*.[pP][dD][fF]
+
+# Generated reader exports. The source template assets/reader/index.html stays.
+reader.html
+reader ([0-9]*).html
+reader-*.html
+reader_[0-9]*.html
+*-reader.html
+*-reader ([0-9]*).html
+*.reader.html
+*.reader ([0-9]*).html
+.micro-paper-*.tmp
+
+# Per-paper extracted content, source evidence, reviews, and translation tasks.
+paper.json
+source-manifest.json
+source-inventory.json
+source-figure-ledger.json
+source-transcription-ledger.json
+authored-source-ledger.json
+figure-ledger.json
+reference-ledger.json
+reference-audit.json
+reference-candidates.json
+structure-approval.json
+glossary.json
+review.json
+review-template.json
+qa-report.json
+browser-evidence.json
+evidence.json
+*-evidence.json
+translation-receipts.json
+source-inventory/
+source-figure-proofs/
+source-transactions/
+translation-jobs/
+translation/
+structure/
+pages/
+figures/
+
+# Notes exports contain selections, quotations, personal text, and timestamps.
+micro-paper-notes*.json
+micro-paper-notes*.md
+micro-paper-notes*.html
+
+# Benchmark records and transaction state may contain local paths/hostnames.
+run-ledger/
+run-report.json
+run-report-*.json
+.micro-paper-write.lock/
+.source-transaction
+.translation-transaction/
+.translation-stage-*/
+.source-stage-*
+.inventory-stage-*/
+*.json.tmp
+*.json.tmp-*
+
+# Browser checks, screenshots, recordings, traces, and logs.
+screenshots/
+screenshot/
+playwright-report/
+test-results/
+blob-report/
+*.trace.zip
+*.webm
+*.log
+screenshot*.png
+screenshot*.jpg
+screenshot*.jpeg
+*-screenshot.png
+*-screenshot.jpg
+
+# Local credentials and machine-specific tool settings.
+.env
+.env.*
+!.env.example
+!.env.template
+credentials.json
+credentials.yaml
+credentials.yml
+secrets.json
+secrets.yaml
+secrets.yml
+*.secrets.json
+*.private.json
+*.local.json
+/config.json
+/config.local.*
+/config.private.*
+/.aws/
+/.ssh/
+/.codex/
+/.claude/
+/.cursor/
+/.vscode/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# Python/Node environments, caches, and generated build/coverage files.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+node_modules/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+/build/
+/dist/
+*.egg-info/
+
+# Operating-system and editor debris.
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo

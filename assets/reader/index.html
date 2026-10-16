@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>micro-paper</title><style>__STYLE__
+__COLUMNS_STYLE__
+__ARTICLE_INFO_STYLE__
+__SELECTION_STYLE__
+__READING_FONT_STYLE__
+__SEARCH_STYLE__
+__REFERENCE_STYLE__</style></head>
+<body>
+<header><h1 id="title"></h1></header>
+<div id="storage-warning" role="alert" hidden>本地存储不可用，笔记仍在本次会话内。请立即导出 JSON 备份。</div>
+<nav class="toolbar" aria-label="阅读控制">
+ <button id="menu" aria-label="目录" aria-expanded="false">目录</button>
+ <div class="segmented"><button data-language="en">EN</button><button data-language="zh">中文</button><button data-language="both">对照</button></div>
+ <button data-view="reader">正文</button><button data-view="source">原pdf</button><button data-view="notes">阅读笔记</button>
+ <button id="figure-toggle" aria-expanded="false">图栏</button><button id="download-html">下载 HTML</button>
+ <div class="reading-font-controls" role="group" aria-label="正文字号"><button id="reading-font-decrease" aria-label="减小正文字号">A−</button><output id="reading-font-status" aria-live="polite"></output><button id="reading-font-increase" aria-label="增大正文字号">A+</button></div>
+ <div id="article-search" class="article-search"></div>
+</nav>
+<main>
+ <aside id="sidebar"><div id="toc"></div></aside>
+ <div id="reader-view"><article id="article"></article><aside id="figure-pane"><div class="figure-controls"><label>图<select id="figure-select"></select></label><button id="pin" aria-pressed="false">固定</button><button id="zoom">放大</button><button id="figure-close" aria-label="关闭图栏">关闭图栏</button></div><div id="figure-candidates" hidden></div><div class="figure-image-controls"><button id="figure-zoom-out" aria-label="缩小图栏图片">−</button><button id="figure-zoom-in" aria-label="放大图栏图片">+</button><button id="figure-fit" title="完整适应图片区域">适应</button><output id="figure-scale-output" aria-live="polite"></output><label>当前缩放<input id="figure-initial-scale" type="number" min="0.5" max="8" step="0.1" value="1"></label></div><div id="figure-content"></div><p id="caption-unassigned" class="caption-state" hidden>未关联图片的图注</p><div id="figure-caption-content" class="figure-caption" aria-label="Figure legend / 图注"></div></aside></div>
+ <section id="source-view" hidden><div class="source-controls"><a id="original-pdf" download="source.pdf">保存原 PDF</a></div><p id="source-pdf-loading" role="status" hidden>正在载入原 PDF…</p><iframe id="source-pdf-frame" title="完整原始 PDF" hidden></iframe><div id="source-pages" hidden></div></section>
+ <section id="notes-view" hidden><h2>阅读笔记</h2><span id="note-count" hidden aria-hidden="true">0</span><p>笔记保存在当前浏览器；下载 HTML 会一并保存当前高亮颜色与笔记，也可使用 JSON 备份迁移。</p><div class="backup-controls"><button id="export-json">JSON 备份</button><button id="import-json">导入 JSON</button><button id="export-md">Markdown 导出</button><input id="import-file" type="file" accept=".json,application/json" hidden></div><div id="notes-list"></div></section>
+</main>
+<div id="selection-tools" hidden></div>
+<dialog id="note-dialog"><form id="note-form"><h2>编辑笔记</h2><blockquote id="note-quote"></blockquote><label>笔记<textarea id="note-text" rows="5"></textarea></label><label>颜色<select id="note-color"><option value="yellow">黄色</option><option value="blue">蓝色</option><option value="green">绿色</option><option value="pink">粉色</option><option value="orange">橘色</option></select></label><div class="dialog-actions"><button type="button" data-close="note-dialog">取消</button><button type="button" id="delete-note">删除</button><button type="submit">保存笔记</button></div></form></dialog>
+<dialog id="import-dialog"><h2>导入预览</h2><p id="import-preview"></p><p>冲突将保留副本；无法核实的位置保留为待定位，不自动猜测。</p><div class="dialog-actions"><button data-close="import-dialog">取消</button><button id="confirm-import">确认合并</button></div></dialog>
+<dialog id="image-dialog"><div id="image-tools" class="image-tools"><button data-close="image-dialog">关闭</button><button id="zoom-out">−</button><button id="zoom-in">+</button><button id="zoom-fit">适应</button><span>滚轮以指针为中心缩放 · 拖动平移 · 点击图外空白退出</span></div><div id="image-scroll"><img id="zoom-image" alt="放大原图"></div></dialog>
+<dialog id="export-dialog"><form id="export-form"><h2>下载 HTML</h2><label>文件名模板<input id="export-template" type="text" value="reader.html" maxlength="500"></label><p id="export-tokens">可用字段：{year} 发表年份、{title} 文章标题、{titleEn}、{titleZh}、{date} 生成日期、{documentId}。缺失字段使用回退值。</p><p>预览：<output id="export-preview" aria-live="polite"></output></p><label>本次文件名<input id="export-name" type="text" maxlength="500"></label><p id="export-warning" role="status"></p><div class="dialog-actions"><button type="button" data-close="export-dialog">取消</button><button type="button" id="export-reset">恢复默认</button><button type="submit" id="export-confirm">下载</button></div></form></dialog>
+<div id="toast" role="status" hidden></div>
+<script type="application/json" id="paper-data">__PAPER__</script><script type="application/json" id="embedded-notes">null</script><script>__IMAGE_SCRIPT__</script><script>__EXPORT_SCRIPT__</script><script>__ARTICLE_INFO_SCRIPT__</script><script>__COLUMNS_SCRIPT__</script><script>__PRESENTATION_SCRIPT__</script><script>__NOTES_STATE_SCRIPT__</script><script>__TOC_SCRIPT__</script><script>__ORIGINAL_PDF_SCRIPT__</script><script>__SELECTION_SCRIPT__</script><script>__READING_FONT_SCRIPT__</script><script>__SEARCH_SCRIPT__</script><script>__REFERENCE_SCRIPT__</script><script>__SCRIPT__</script>
+</body></html>

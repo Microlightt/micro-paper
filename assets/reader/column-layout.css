@@ -1,0 +1,20 @@
+/* Loaded after the base reader CSS. Handles replace the old column gaps. */
+.column-splitter{display:none}
+@media(min-width:801px){
+ main.micro-paper-columns{grid-template-columns:var(--sidebar-width,160px) minmax(0,1fr);column-gap:12px;row-gap:0}
+ main.micro-paper-columns>#sidebar{grid-column:1;grid-row:1;min-width:0}
+ main.micro-paper-columns>#reader-view,main.micro-paper-columns>#source-view,main.micro-paper-columns>#notes-view{grid-column:2;grid-row:1;min-width:0}
+ main.micro-paper-columns[data-columns-mode=reader]{grid-template-columns:var(--sidebar-width,160px) var(--column-splitter-size,12px) minmax(0,1fr);column-gap:0}
+ main.micro-paper-columns[data-columns-mode=reader]>#sidebar-splitter{grid-column:2;grid-row:1}
+ main.micro-paper-columns[data-columns-mode=reader]>#reader-view{grid-column:3;grid-row:1;grid-template-columns:minmax(0,var(--article-track,1fr)) var(--column-splitter-size,12px) minmax(0,var(--figure-track,1fr));column-gap:0;row-gap:0}
+ main.micro-paper-columns #article{grid-column:1;grid-row:1;min-width:0}
+ main.micro-paper-columns #figure-splitter{grid-column:2;grid-row:1}
+ main.micro-paper-columns #figure-pane{grid-column:3;grid-row:1;min-width:0}
+ main.micro-paper-columns .column-splitter{display:block;position:sticky;top:calc(var(--toolbar-bottom,var(--toolbar,58px)) + 12px);align-self:start;height:calc(100dvh - var(--toolbar,58px) - 24px);min-height:80px;max-height:720px;min-width:0;cursor:col-resize;touch-action:none;user-select:none;outline-offset:-2px;z-index:2}
+ .column-splitter::before{content:"";position:absolute;left:calc(50% - 1px);top:0;bottom:0;width:2px;background:var(--line,#dbe3dc);border-radius:2px}
+ .column-splitter::after{content:"";position:absolute;left:calc(50% - 2px);top:min(28vh,160px);width:4px;height:28px;border-radius:3px;background:var(--muted,#64756f)}
+ .column-splitter:hover::before,.column-splitter:focus-visible::before{background:var(--accent,#276651);width:3px}
+ .column-splitter:focus-visible{outline:2px solid var(--accent,#276651)}
+ html.micro-paper-columns-dragging,html.micro-paper-columns-dragging *{cursor:col-resize!important;user-select:none!important}
+}
+@media(max-width:800px){.column-splitter{display:none!important}}

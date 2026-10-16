@@ -1,0 +1,26 @@
+/* Metadata-only two-column table. Body, scientific remainder and legends keep their styles. */
+.article-info.article-info-table{padding:12px 14px;text-align:left}
+.article-info-table>.article-info-heading{font-size:16px;line-height:1.4;margin:0 0 7px}
+.article-info-table>.article-info-titles{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid #e5ebe5}
+.article-info-table>.article-info-titles .block{margin:0;padding:0}
+.article-info-table>.article-info-titles .prose{font-size:17px;line-height:1.4;font-weight:600;margin:0 0 3px;max-width:none}
+.article-info-table>.article-info-titles .prose[data-language=zh]{font-size:16px;padding-left:0;border-left:0}
+.article-info-table>.article-info-titles .source-link{margin:0;padding:0 2px}
+.article-info-table>.article-info-fields{display:block;min-width:0}
+.article-info-table>.article-info-fields>.info-field{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:10px;align-items:start;min-width:0;margin:0;padding:5px 0;border-bottom:1px solid #edf0eb}
+.article-info-table>.article-info-fields>.info-field:last-child{border-bottom:0}
+.article-info-table .article-info-fields .info-label{display:block;min-width:0;padding:0;margin:0;color:var(--muted,#64756f);font-size:12px;line-height:1.5;overflow-wrap:anywhere;text-align:left}
+.article-info-table .article-info-fields .info-value{min-width:0;overflow-wrap:anywhere;text-align:left}
+.article-info-table .article-info-fields .info-items{display:flex;flex-direction:column;gap:3px}
+.article-info-table .article-info-fields .block{margin:0;padding:0}
+.article-info-table .article-info-fields .block+.block{margin-top:3px}
+.article-info-table .article-info-fields .info-items>.block+.block{margin-top:0}
+.article-info-table .article-info-fields .prose,
+.article-info-table .article-info-fields .info-metadata-value{font-family:inherit;font-size:14px;line-height:1.5;max-width:none;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.article-info-table .article-info-fields .heading .prose{font-size:14px;line-height:1.5;font-weight:600}
+.article-info-table .article-info-fields .prose[data-language=zh]{padding-left:0;border-left:0}
+.article-info-table .article-info-fields .source-link{display:inline-block;font-size:10px;line-height:1.3;padding:0 2px;margin-top:1px}
+@media(max-width:800px){
+ .article-info.article-info-table{padding:10px 12px}
+ .article-info-table>.article-info-fields>.info-field{grid-template-columns:4.3rem minmax(0,1fr);gap:8px}
+}

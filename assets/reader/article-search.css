@@ -1,0 +1,20 @@
+/* Search remains in toolbar flow and wraps to its own row on small screens. */
+.article-search{display:flex;align-items:center;gap:4px;flex:0 1 358px;min-width:260px;max-width:100%;margin-left:auto}
+.article-search .search-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.article-search input[type=search]{flex:1 1 auto;width:0;min-width:92px;margin:0;padding:8px 9px;font-size:13px;line-height:20px;border:1px solid var(--line,#dbe3dc);border-radius:8px;background:#fff;color:var(--ink,#22312e)}
+.article-search input[type=search]::-webkit-search-cancel-button{display:none}
+.article-search #search-status{flex:none;min-width:3.4em;padding:0;text-align:center;font-size:12px;line-height:1.3;white-space:nowrap;color:var(--muted,#64756f);font-variant-numeric:tabular-nums}
+.article-search .search-button{flex:0 0 27px;width:27px;min-width:0;min-height:32px;padding:3px;font-size:17px;line-height:24px;border-radius:7px;background:#fff;color:var(--accent,#276651)}
+.article-search .search-button:disabled{opacity:.4;cursor:default}
+.article-search .search-button:disabled:hover{border-color:var(--line,#dbe3dc)}
+/* Purple underlined search paint is temporary, separate from saved note colours. */
+::highlight(micro-paper-search){background-color:#e8defb;color:inherit;text-decoration:underline solid #8659b8;text-decoration-thickness:1px}
+::highlight(micro-paper-search-active){background-color:#c9b6ef;color:#27113f;text-decoration:underline double #60328c;text-decoration-thickness:2px}
+.prose.search-reveal-duplicate{display:block!important}
+.prose.search-reveal-duplicate .info-duplicate-value[hidden]{display:inline!important}
+/* Range-rectangle fallback never inserts children into canonical text or captures input. */
+.search-range-overlay{position:fixed;inset:0;z-index:22;pointer-events:none;overflow:hidden;contain:strict}
+.search-range-rect{position:absolute;pointer-events:none;background:#bb98ef55;border-bottom:1px solid #8659b8;border-radius:2px;mix-blend-mode:multiply}
+.search-range-rect.is-active{background:#9d69df66;border-bottom:3px double #60328c}
+@media(max-width:800px){.article-search{flex:1 0 100%;width:100%;min-width:0;margin:2px 0 0}.article-search input[type=search]{min-width:0;flex:1 1 120px}.article-search .search-button{flex-basis:30px;width:30px;min-height:34px}.article-search #search-status{min-width:4em}}
+@media(prefers-contrast:more){::highlight(micro-paper-search){background-color:#e1caff;color:#170b25}::highlight(micro-paper-search-active){background-color:#b88cfa;color:#170b25}.search-range-rect{border:1px solid #60328c}.search-range-rect.is-active{border:2px solid #3c116a}}
